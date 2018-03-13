@@ -1,0 +1,72 @@
+//------------------------------------------------------*
+// my dark color for dark field
+//------------------------------------------------------*
+$darkcolor: #37474F;
+//$darkcolor: #424242;
+
+$darkcolor-light: lighten($darkcolor, 10%);
+$darkcolor-lighter: lighten($darkcolor, 20%);
+
+$darkcolor-dark: darken($darkcolor, 10%);
+$darkcolor-darker: darken($darkcolor, 20%);
+//------------------------------------------------------*
+// my light color for dark field
+//------------------------------------------------------*
+$lightcolor: #F2F3F5;
+
+$lightcolor-light: lighten($lightcolor, 10%);
+$lightcolor-lighter: lighten($lightcolor, 20%);
+
+$lightcolor-dark: darken($lightcolor, 10%);
+$lightcolor-darker: darken($lightcolor, 20%);
+//------------------------------------------------------*
+// my first primary color as pink
+//------------------------------------------------------*
+$first: #894eeb;
+//$first: #63c5da;
+//$first: #e91e63;
+//$first: #ffd600;
+//$first: #ff0081;
+
+$first-light: lighten($first, 10%);
+$first-lighter: lighten($first, 20%);
+
+$first-dark: darken($first, 10%);
+$first-darker: darken($first, 20%);
+
+$first-gradient-bg: -webkit-linear-gradient(180deg, $first, $first-lighter);
+
+//------------------------------------------------------*
+// my secound primary color as green
+//------------------------------------------------------*
+//$secound: #008aff;
+$secound: #ff0081;
+
+$secound-light: lighten($secound, 10%);
+$secound-lighter: lighten($secound, 20%);
+$secound-lighten: lighten($secound, 30%);
+
+$secound-dark: darken($secound, 10%);
+$secound-darker: darken($secound, 20%);
+
+//------------------------------------------------------*
+// my third primary color as yellow
+//------------------------------------------------------*
+//$third: #64b800;
+$third: #2ecc71;
+
+$third-light: lighten($third, 10%);
+$third-lighter: lighten($third, 20%);
+
+$third-dark: darken($third, 10%);
+$third-darker: darken($third, 20%);
+//------------------------------------------------------*
+// my fourth primary color as blue
+//------------------------------------------------------*
+$fourth: #ff6700;
+
+$fourth-light: lighten($fourth, 10%);
+$fourth-lighter: lighten($fourth, 20%);
+
+$fourth-dark: darken($fourth, 10%);
+$fourth-darker: darken($fourth, 20%);
