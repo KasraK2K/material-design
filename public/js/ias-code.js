@@ -8,4 +8,3 @@ if (url == "http://127.0.0.1:8000/") {
     $('.top-bar#main-menu a[href="/"]').parent().addClass('active');
 }
 
-
