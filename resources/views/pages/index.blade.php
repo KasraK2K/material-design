@@ -94,13 +94,14 @@
             </div>
         </div>
         <div class="row" id="blog-sibling" data-equalizer>
-            <div class="smal-12 medium-4 large-4 columns" id="joyride3">
+            @foreach($articles as $article)
+            <div class="smal-12 medium-4 large-4 columns" @if ($loop->first) id="joyride3" @endif>
                 <article>
-                    <h3 class="text-right"><a href="#">مطلب نمونه به عنوان مقاله دو</a></h3>
+                    <h3 class="text-right"><a href="#">{{ $article->title }}</a></h3>
                     <img src="https://placehold.it/300x240" alt="" class="blog-image right">
                     <br>
-                    <div class="panel panel-shadow">
-                        <p class="text-justify" data-equalizer-watch>لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است. چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است و برای شرایط فعلی</p>
+                    <div class="panel panel-shadow" data-equalizer-watch>
+                        <p class="text-justify">{!! $article->body !!}</p>
                         <hr>
                         <ul class="no-bullet blog-info">
                             <li><i class="fi-clock"></i><span>تاریخ انتشار: 1365/01/01 ساعت 11:45</span></li>
@@ -113,44 +114,7 @@
                     </div>
                 </article>
             </div>
-            <div class="smal-12 medium-4 large-4 columns">
-                <article>
-                    <h3 class="text-right"><a href="#">مطلب نمونه به عنوان مقاله دو</a></h3>
-                    <img src="https://placehold.it/300x240" alt="" class="blog-image right">
-                    <br>
-                    <div class="panel panel-shadow">
-                        <p class="text-justify" data-equalizer-watch>لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است. چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است و برای شرایط فعلی</p>
-                        <hr>
-                        <ul class="no-bullet blog-info">
-                            <li><i class="fi-clock"></i><span>تاریخ انتشار: 1365/01/01 ساعت 11:45</span></li>
-                            <li><i class="fi-archive"></i><a>دسته بندی</a></li>
-                        </ul>
-                        <hr>
-                        <p class="text-right b-margin">
-                            <a href="#">ادامه مطلب...</a>
-                        </p>
-                    </div>
-                </article>
-            </div>
-            <div class="smal-12 medium-4 large-4 columns">
-                <article>
-                    <h3 class="text-right"><a href="#">مطلب نمونه به عنوان مقاله دو</a></h3>
-                    <img src="https://placehold.it/300x240" alt="" class="blog-image right">
-                    <br>
-                    <div class="panel panel-shadow">
-                        <p class="text-justify" data-equalizer-watch>لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است. چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است و برای شرایط فعلی</p>
-                        <hr>
-                        <ul class="no-bullet blog-info">
-                            <li><i class="fi-clock"></i><span>تاریخ انتشار: 1365/01/01 ساعت 11:45</span></li>
-                            <li><i class="fi-archive"></i><a>دسته بندی</a></li>
-                        </ul>
-                        <hr>
-                        <p class="text-right b-margin">
-                            <a href="#">ادامه مطلب...</a>
-                        </p>
-                    </div>
-                </article>
-            </div>
+            @endforeach
         </div>
         <div class="row">
             <div class="small-12 medium-12 large-12 columns">

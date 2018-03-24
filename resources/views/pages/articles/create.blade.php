@@ -2,7 +2,7 @@
 
 @section('pagetitle')
     {{--create article--}}
-    <seaction id="portfolio-header">
+    <seaction>
         <div class="small-12 medium-12 large-12 columns page-title text-center caption">
             <h2 class="text-3d">صفحه ایجاد مقاله جدید</h2>
         </div>
@@ -17,6 +17,8 @@
                 <blockquote>
                     <h5 class="dark-stork-shadow">فرم ایجاد مقاله جدید</h5>
                 </blockquote>
+                {{--errors--}}
+                @include('layouts.errors')
                 <form action="{{ route('article.store') }}" method="post" data-abide>
                     {{ csrf_field() }}
                     {{--title--}}
@@ -25,7 +27,7 @@
                             <label class="inline" for="title">عنوان مقاله</label>
                         </div>
                         <div class="small-9 medium-10 large-10 columns">
-                            <input type="text" class="text-right" id="title" name="title" placeholder="لطفا تیتر مقاله خود را وارد کنید ...">
+                            <input required type="text" class="text-right" id="title" name="title" value="{!! old('title') !!}" placeholder="لطفا تیتر مقاله خود را وارد کنید ...">
                             <small class="error text-right">
                                 لطفا نام خود را وارد کنید.
                             </small>
@@ -53,8 +55,8 @@
                             <label class="inline" for="body">متن مقاله</label>
                         </div>
                         <div class="small-9 medium-10 large-10 columns">
-                        <textarea id="body" name="body" cols="30" rows="7" class="text-right"
-                                  placeholder="متن پیام شما ..."></textarea>
+                        <textarea required id="body" name="body" cols="30" rows="7" class="text-right"
+                                  placeholder="متن پیام شما ...">{{ old('body') }}</textarea>
                             <small class="error text-right">
                                 لطفا متن پیام خود را وارد نمایید.
                             </small>

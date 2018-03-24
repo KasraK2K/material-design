@@ -28,7 +28,7 @@
                     <h5 class="dark-stork-shadow">فرم تماس با ما</h5>
                 </blockquote>
                 <form action="" id="contact-form" data-abide>
-                    <!--name-->
+                    {{--name--}}
                     <div class="row">
                         <div class="small-4 medium-3 large-3 columns">
                             <label class="inline" for="name">نام</label>
@@ -40,7 +40,7 @@
                             </small>
                         </div>
                     </div>
-                    <!--family-->
+                    {{--family--}}
                     <div class="row">
                         <div class="small-4 medium-3 large-3 columns">
                             <label class="inline" for="family">نام خانوادگی</label>
@@ -52,7 +52,7 @@
                             </small>
                         </div>
                     </div>
-                    <!--email-->
+                    {{--email--}}
                     <div class="row">
                         <div class="small-4 medium-3 large-3 columns">
                             <label class="inline" for="email">ایمیل</label>
@@ -64,7 +64,7 @@
                             </small>
                         </div>
                     </div>
-                    <!--subject-->
+                    {{--subject--}}
                     <div class="row">
                         <div class="small-4 medium-3 large-3 columns">
                             <label class="inline" for="subject">موضوع پیام</label>
@@ -74,7 +74,7 @@
                             <small class="error text-right"></small>
                         </div>
                     </div>
-                    <!--message-->
+                    {{--message--}}
                     <div class="row">
                         <div class="small-4 medium-3 large-3 columns">
                             <label class="inline" for="message">متن پیام</label>
@@ -87,7 +87,7 @@
                             </small>
                         </div>
                     </div>
-                    <!--submit-->
+                    {{--submit--}}
                     <div class="row">
                         <div class="small-4 medium-3 large-3 columns">
                             <label>&nbsp;</label>

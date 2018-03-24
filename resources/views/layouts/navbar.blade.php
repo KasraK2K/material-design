@@ -2,9 +2,9 @@
     <nav class="top-bar" id="main-menu" data-topbar role="navigation">
         <ul class="title-area">
             <li class="name">
-                <h1 class="hide-for-small-only">
+                <h2 class="show-for-large-only">
                     <a href="#">متریال دیزاین</a>
-                </h1>
+                </h2>
             </li>
             <li class="toggle-topbar menu-icon">
                 <a href="#">

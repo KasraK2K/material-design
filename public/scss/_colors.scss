@@ -22,6 +22,8 @@ $lightcolor-lighter: lighten($lightcolor, 20%);
 
 $lightcolor-dark: darken($lightcolor, 10%);
 $lightcolor-darker: darken($lightcolor, 20%);
+
+$panel: #F2F2F2;
 //------------------------------------------------------*
 // my first primary color as pink
 //------------------------------------------------------*
@@ -79,3 +81,7 @@ $fourth-lighter: lighten($fourth, 20%);
 
 $fourth-dark: darken($fourth, 10%);
 $fourth-darker: darken($fourth, 20%);
+
+.red {
+  background-color: red;
+}
