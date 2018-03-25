@@ -2,7 +2,7 @@
     <nav class="top-bar" id="main-menu" data-topbar role="navigation">
         <ul class="title-area">
             <li class="name">
-                <h2 class="show-for-large-only">
+                <h2 class="show-for-medium-up">
                     <a href="#">متریال دیزاین</a>
                 </h2>
             </li>
@@ -77,6 +77,27 @@
                         </li>
                     </ul>
                 </li>
+                @if(auth::check())
+                    <li>
+                        <form action="{{ route('logout') }}" method="post">
+                            @csrf
+                            <button class="logout">خروج</button>
+                        </form>
+                    </li>
+                @else
+                    <li class="has-dropdown">
+                        <a href="javascript:;" rel="nofollow">گزینه های کاربری</a>
+                        <ul class="dropdown">
+                            <li>
+                                <a href="/login">ورود</a>
+                            </li>
+                            <li>
+                                <a href="/register">ثبت نام</a>
+                            </li>
+                        </ul>
+                    </li>
+                @endif
+
             </ul>
         </section>
     </nav>

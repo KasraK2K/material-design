@@ -32,53 +32,55 @@
                             <li>
                                 <i class="fi-clock"></i><span>تاریخ انتشار: {{ jdate($article->updated_at)->format('Y/m/d ساعت H:i:s') }}</span>
                             </li>
-                            <li><i class="fi-pencil"></i><span>نوشته شده توسط: <a href="#">{{ $article->user->name }}</a></span></li>
+                            <li><i class="fi-pencil"></i><span>نوشته شده توسط: <a
+                                            href="#">{{ $article->user->name }}</a></span></li>
                             <li><i class="fi-archive"></i><a>نام دسته بندی</a></li>
                         </ul>
                     </div>
                 </article>
-                <p class="text-right">ارسال دیدگاه:</p>
-                <form action="" data-abide>
-                    <textarea required id="comment" name="comment" cols="30" rows="5" class="text-right"
-                              placeholder="دیدگاه شما ...">{!! old('body') !!}</textarea>
-                    <small class="error text-right">
-                        لطفا دیدگاه خود را وارد نمایید.
-                    </small>
-                    <button type="submit" class="bttn-pill bttn-lg bttn-royal">ارسال دیدگاه</button>
-                </form>
-                <ul class="no-bullet blog-info comment">
-                    <li>
-                        <i class="fi-torso"></i><span class="bold">حسن عسکری</span>
-                    </li>
-                    <li>
-                        <i class="fi-clock"></i><span>تاریخ انتشار: {{ jdate($article->updated_at)->format('Y/m/d ساعت H:i:s') }}</span>
-                    </li>
-                    <li>
-                        <i class="fi-comment"></i><span>م متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است. چاپگرها و متون بلکه روزنامه و مجله در ستون و </span>
-                    </li>
-                </ul>
-                <ul class="no-bullet blog-info comment">
-                    <li>
-                        <i class="fi-torso"></i><span class="bold">حسن عسکری</span>
-                    </li>
-                    <li>
-                        <i class="fi-clock"></i><span>تاریخ انتشار: {{ jdate($article->updated_at)->format('Y/m/d ساعت H:i:s') }}</span>
-                    </li>
-                    <li>
-                        <i class="fi-comment"></i><span>م متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است. چاپگرها و متون بلکه روزنامه و مجله در ستون و </span>
-                    </li>
-                </ul>
-                <ul class="no-bullet blog-info comment b-margin">
-                    <li>
-                        <i class="fi-torso"></i><span class="bold">محمد عسکری</span>
-                    </li>
-                    <li>
-                        <i class="fi-clock"></i><span>تاریخ انتشار: {{ jdate($article->updated_at)->format('Y/m/d ساعت H:i:s') }}</span>
-                    </li>
-                    <li>
-                        <i class="fi-comment"></i><span>م متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است. چاپگرها و متون بلکه روزنامه و مجله در ستون و </span>
-                    </li>
-                </ul>
+                <p class="text-right bold">ارسال دیدگاه</p>
+                @if(auth::check())
+                    <div class="no-margin">
+                        @include('layouts.errors')
+                    </div>
+                    <form action="{{ route('comment.store', ['article' => $article->slug]) }}" method="post" class="panel" data-abide>
+                        @csrf
+                        <div>
+                            <label for="comment">دیدگاه:</label>
+                            <textarea required id="comment" name="comment" rows="2" class="text-right"
+                                      placeholder="دیدگاه شما ...">{!! old('comment') !!}</textarea>
+                            <small class="error text-right">
+                                لطفا دیدگاه خود را وارد نمایید.
+                            </small>
+                        </div>
+                        <button type="submit" class="bttn-pill bttn-lg bttn-royal">ارسال دیدگاه</button>
+                    </form>
+                    @if(!count($comments))
+                        <ul class="no-bullet blog-info comment b-margin">
+                            <li>
+                                <i class="fi-comments"></i><label for="comment" class="inline dark-lighter-text">اولین نفری باشید که برای این مطلب دیدگاهی ارسال میکند.</label>
+                            </li>
+                        </ul>
+                    @endif
+                @else
+                    <div class="panel callout">برای ارسال دیدگاه باید <a href="/login">وارد</a> شده باشید. اگر اکانت ندارید <a
+                                href="/register">ثبت نام</a> کنید.</div>
+                @endif
+
+
+                @foreach($comments as $comment)
+                    <ul class="no-bullet blog-info comment" id="comment">
+                        <li>
+                            <i class="fi-torso"></i><span class="bold">{{ $comment->user->name }}</span>
+                        </li>
+                        <li>
+                            <i class="fi-clock"></i><span>تاریخ انتشار: {{ jdate($article->updated_at)->format('Y/m/d ساعت H:i:s') }}</span>
+                        </li>
+                        <li>
+                            <i class="fi-comment"></i><span>{!! $comment->comment !!}</span>
+                        </li>
+                    </ul>
+                @endforeach
             </div>
             <!--blog sidebar-->
             <aside class="large-3 columns">

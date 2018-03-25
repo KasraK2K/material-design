@@ -128,6 +128,7 @@ return array(
         "available" => "موجود",
         "size" => "اندازه",
         "body" => "متن",
+        "comment" => "دیدگاه",
         "imageUrl" => "تصویر",
         "videoUrl" => "آدرس ویدیو",
         "slug" => "نامک",

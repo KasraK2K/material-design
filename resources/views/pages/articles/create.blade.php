@@ -20,7 +20,7 @@
                 {{--errors--}}
                 @include('layouts.errors')
                 <form action="{{ route('article.store') }}" method="post" data-abide>
-                    {{ csrf_field() }}
+                    @csrf
                     {{--title--}}
                     <div class="row">
                         <div class="small-3 medium-2 large-2 columns">

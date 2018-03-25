@@ -11,6 +11,12 @@ class ArticleController extends Controller
 {
     public function index()
     {
+//        return User::create([
+//            'name' => 'کاوه کرمی',
+//            'email' => 'Kaveh_K2K@yahoo.com',
+//            'password' => bcrypt('123456'),
+//        ]);
+
         $articles = Article::latest()->paginate(3);
         return view('pages.articles.index', compact('articles'));
     }
@@ -22,21 +28,17 @@ class ArticleController extends Controller
 
     public function store(ArticleRequest $request)
     {
-//        $this->validate(request(), [
-//            'title'     => 'required|min:5',
-//            'body'      => 'required|min:25'
-//        ]);
+        auth()
+            ->user()
+            ->articles()
+            ->create(request(['title', 'body']));
 
-        Article::create([
-            'user_id' => 1,
-            'title' => request('title'),
-            'body' => request('body')
-        ]);
         return back();
     }
 
     public function show(Article $article)
     {
-        return view('pages.articles.show', compact('article'));
+        $comments = $article->comments()->get();
+        return view('pages.articles.show', compact('article', 'comments'));
     }
 }

@@ -315,7 +315,7 @@ section#blog-show {
     button {
       font-size: 18px;
       margin-top: 10px;
-      margin-bottom: 20px;
+      margin-bottom: 5px;
       a {
         color: $lightcolor;
         &:hover {
@@ -374,6 +374,12 @@ section#blog-show {
   }
 }
 
+ul#comment {
+  &:last-child {
+    margin-bottom: 50px;
+  }
+}
+
 //---------------------------------------------------------------------------------------------------------------------*
 /*** sidebar ***/
 //---------------------------------------------------------------------------------------------------------------------*
@@ -416,7 +422,6 @@ section#portfolio {
   max-height: 500px;
   max-width: 500px;
 }
-
 
 //---------------------------------------------------------------------------------------------------------------------*
 /*** contact-us ***/
@@ -464,7 +469,6 @@ section#contact-us {
     }
   }
 }
-
 
 //---------------------------------------------------------------------------------------------------------------------*
 /*** complaint-us ***/
@@ -515,7 +519,6 @@ section#complaint {
     }
   }
 }
-
 
 //---------------------------------------------------------------------------------------------------------------------*
 /*** hire ***/
@@ -830,14 +833,30 @@ ul#amoodi-tabs {
   font-weight: bold;
 }
 
-// form alert
+.inline {
+  display: inline;
+}
+
+.dark-lighter-text {
+  color: $darkcolor-lighter !important;
+}
+
+// form alert - form error
 div#form-alert-box {
   margin: 40px 0;
   background: #f093fb;
-  background: -webkit-linear-gradient(bottom left,$secound-lighter,$first-light);
-  background: -moz-linear-gradient(bottom left,$secound-lighter,$first-light);
-  background: linear-gradient(bottom left,$secound-lighter,$first-light);
+  background: -webkit-linear-gradient(bottom left, $secound-lighter, $first-light);
+  background: -moz-linear-gradient(bottom left, $secound-lighter, $first-light);
+  background: linear-gradient(bottom left, $secound-lighter, $first-light);
   border: none;
+}
+
+// hazf margin bala va paine form error
+div.no-margin {
+  div#form-alert-box {
+    margin-top: 0;
+    margin-bottom: 0;
+  }
 }
 
 //---------------------------------------------------------------------------------------------------------------------*
@@ -929,7 +948,38 @@ ul.pagination li.page-item a {
 // gradient for field error
 [data-abide] .error small.error, [data-abide] .error span.error, [data-abide] span.error, [data-abide] small.error {
   background: #f093fb;
-  background: -webkit-linear-gradient(bottom left,$secound-lighter,$first-light);
-  background: -moz-linear-gradient(bottom left,$secound-lighter,$first-light);
-  background: linear-gradient(bottom left,$secound-lighter,$first-light);
+  background: -webkit-linear-gradient(bottom left, $secound-lighter, $first-light);
+  background: -moz-linear-gradient(bottom left, $secound-lighter, $first-light);
+  background: linear-gradient(bottom left, $secound-lighter, $first-light);
+}
+
+// top-bar button style
+.top-bar input, .top-bar select, .top-bar .button, .top-bar button {
+  background-color: $darkcolor;
+  //padding: 20px;
+  height: 45px;
+  top: 0;
+  line-height: 2.8125rem;
+  padding: 0 0.9375rem;
+  -webkit-transition: 0s;
+  -moz-transition: 0s;
+  -ms-transition: 0s;
+  -o-transition: 0s;
+  transition: 0s;
+  &:hover {
+    background-color: $darkcolor-light;
+  }
+}
+
+// change logout button width 100% at mobile device
+@media only screen and (max-width: 600px) {
+  button.logout {
+    width: 100%;
+    text-align: right;
+  }
+}
+
+// topbar li background color
+.top-bar-section ul li {
+  background-color: $darkcolor;
 }
