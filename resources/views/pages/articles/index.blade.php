@@ -25,39 +25,48 @@
             <div class="large-9 columns" role="content">
                 @foreach($articles as $article)
                     <article>
-                        <h3 class="text-right"><a
-                                    href="{{ route( 'article.show', [ 'article' => $article->slug ]) }}">{{ $article->title }}</a>
+                        <h3 class="text-right">
+                            {{--article title--}}
+                            <a href="{{ route( 'article.show', [ 'article' => $article->slug ]) }}">{{ $article->title }}</a>
+                            {{--update article--}}
+                            @if(auth::check())<a href="{{ route('article.edit', ['article' => $article->slug]) }}" class="article-update">ویرایش مقاله</a>@endif
                         </h3>
                         <a href="{{ route( 'article.show', [ 'article' => $article->slug ]) }}"><img
                                     src="https://placehold.it/720x300" alt="" class="blog-image right"></a>
                         <br>
                         <div class="panel-shadow">
+                            {{--article body--}}
                             <p class="text-justify" data-equalizer-watch>{!! $article->body !!}</p>
                             <ul class="panel no-bullet blog-info">
                                 <li>
                                     <i class="fi-clock"></i><span>تاریخ انتشار: {{ jdate($article->updated_at)->format('Y/m/d ساعت H:i:s') }}</span>
                                 </li>
                                 <li><i class="fi-pencil"></i><span>نوشته شده توسط: <a href="#">{{ $article->user->name }}</a></span></li>
-                                <li><i class="fi-archive"></i><a>نام دسته بندی</a></li>
+                                <li><i class="fi-archive"></i>
+                                    @foreach( $article->categories()->pluck('name') as $cate)
+                                        <a href="/article/category/{{ $cate }}">{{ $cate }}</a>@if(!$loop->last) - @endif
+                                    @endforeach
+                                </li>
                             </ul>
                             <p class="text-right b-margin">
-                                <button class="bttn-pill bttn-lg bttn-royal"><a
-                                            href="{{ route( 'article.show', [ 'article' => $article->slug ]) }}"
-                                            muse_scanned="true">ادامه مطلب</a></button>
+                                <a href="{{ route( 'article.show', [ 'article' => $article->slug ]) }}" muse_scanned="true">
+                                    <button class="bttn-pill bttn-lg bttn-royal">ادامه مطلب</button>
+                                </a>
                             </p>
                         </div>
                     </article>
+                    @if(!$loop->last)
+                        <hr class="b-margin">
+                    @endif
                 @endforeach
             </div>
             <!--blog sidebar-->
             <aside class="large-3 columns">
                 <h5>دسته بندی ها</h5>
                 <ul class="side-nav">
-                    <li><a href="#">مدیریت سایت</a></li>
-                    <li><a href="#">مقالات آموزشی</a></li>
-                    <li><a href="#">طراحی سایت</a></li>
-                    <li><a href="#">مدیریت و ارتقا شغلی</a></li>
-                    <li><a href="#">تکنولوژی</a></li>
+                    @foreach( $article->categories()->pluck('name') as $cate)
+                        <li><a href="/article/category/{{ $cate }}">{{ $cate }}</a></li>
+                    @endforeach
                 </ul>
                 <div class="panel">
                     <h5>ویژگی ها</h5>

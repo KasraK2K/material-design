@@ -38,23 +38,25 @@
                         </ul>
                     </div>
                 </article>
-                <p class="text-right bold">ارسال دیدگاه</p>
+                <fieldset>
+                    <legend class="text-right bold">ارسال دیدگاه</legend>
                 @if(auth::check())
                     <div class="no-margin">
                         @include('layouts.errors')
                     </div>
-                    <form action="{{ route('comment.store', ['article' => $article->slug]) }}" method="post" class="panel" data-abide>
+                    <form action="{{ route('comment.store', ['article' => $article->slug]) }}" method="post" data-abide>
                         @csrf
                         <div>
-                            <label for="comment">دیدگاه:</label>
+                            <label for="comment">دیدگاه شما:</label>
                             <textarea required id="comment" name="comment" rows="2" class="text-right"
-                                      placeholder="دیدگاه شما ...">{!! old('comment') !!}</textarea>
+                                      placeholder="لطفا متن دیدگاه خود را د این قسمت بنویسید ...">{!! old('comment') !!}</textarea>
                             <small class="error text-right">
                                 لطفا دیدگاه خود را وارد نمایید.
                             </small>
                         </div>
                         <button type="submit" class="bttn-pill bttn-lg bttn-royal">ارسال دیدگاه</button>
                     </form>
+                </fieldset>
                     @if(!count($comments))
                         <ul class="no-bullet blog-info comment b-margin">
                             <li>
@@ -66,8 +68,6 @@
                     <div class="panel callout">برای ارسال دیدگاه باید <a href="/login">وارد</a> شده باشید. اگر اکانت ندارید <a
                                 href="/register">ثبت نام</a> کنید.</div>
                 @endif
-
-
                 @foreach($comments as $comment)
                     <ul class="no-bullet blog-info comment" id="comment">
                         <li>

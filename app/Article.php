@@ -9,6 +9,15 @@ class Article extends Model
 {
     use Sluggable;
 
+    protected $fillable = [
+        'user_id',
+        'title',
+        'slug',
+        'body',
+        'viewCount',
+        'commentCount'
+    ];
+
     public function sluggable()
     {
         return [
@@ -23,15 +32,6 @@ class Article extends Model
         return 'slug';
     }
 
-    protected $fillable = [
-        'user_id',
-        'title',
-        'slug',
-        'body',
-        'viewCount',
-        'commentCount'
-    ];
-
     public function user()
     {
         return $this->belongsTo(User::class);
@@ -40,5 +40,10 @@ class Article extends Model
     public function comments()
     {
         return $this->hasMany(Comment::class);
+    }
+
+    public function categories()
+    {
+        return $this->belongsToMany(Category::class);
     }
 }
