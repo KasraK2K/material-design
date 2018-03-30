@@ -32,7 +32,7 @@ class ArticleController extends Controller
 
         $article->categories()->attach(request('category'));
 
-        return back();
+        return redirect('/article');
     }
 
     public function show(Article $article)

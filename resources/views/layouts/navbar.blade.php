@@ -41,14 +41,20 @@
                 <li>
                     <a href="/portfolio">نمونه کارها</a>
                 </li>
-                <li class="has-dropdown">
-                    <a href="/article">مقالات</a>
-                    <ul class="dropdown">
-                        <li>
-                            <a href="/article/create">ایجاد مقاله جدید</a>
-                        </li>
-                    </ul>
-                </li>
+                @if(auth::check())
+                    <li class="has-dropdown">
+                        <a href="/article">مقالات</a>
+                        <ul class="dropdown">
+                            <li>
+                                <a href="/article/create">ایجاد مقاله جدید</a>
+                            </li>
+                        </ul>
+                    </li>
+                @else
+                    <li>
+                        <a href="/article">مقالات</a>
+                    </li>
+                @endif
                 <li class="has-dropdown">
                     <a href="/about-us" rel="nofollow">درباره ما</a>
                     <ul class="dropdown">

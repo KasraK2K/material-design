@@ -82,23 +82,8 @@
                     </ul>
                 @endforeach
             </div>
-            <!--blog sidebar-->
-            <aside class="large-3 columns">
-                <h5>دسته بندی ها</h5>
-                <ul class="side-nav">
-                    <li><a href="#">مدیریت سایت</a></li>
-                    <li><a href="#">مقالات آموزشی</a></li>
-                    <li><a href="#">طراحی سایت</a></li>
-                    <li><a href="#">مدیریت و ارتقا شغلی</a></li>
-                    <li><a href="#">تکنولوژی</a></li>
-                </ul>
-                <div class="panel">
-                    <h5>ویژگی ها</h5>
-                    <p>لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است.
-                        چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که </p>
-                    <a href="#">خواندن بیشتر ...</a>
-                </div>
-            </aside>
+            {{--blog sidebar--}}
+            @include('layouts.sidebar')
         </div>
         {{--paginate--}}
         <div class="row">

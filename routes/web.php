@@ -20,7 +20,7 @@ Route::get('/article/{article}/edit', 'ArticleController@edit')->name('article.e
 Route::patch('/article/{article}', 'ArticleController@update')->name('article.update');
 
 // Category
-Route::get('/article/category/{category}', 'CategoryController@index');
+Route::get('/article/category/{category}', 'CategoryController@index')->name('category.index');;
 
 // CommentController
 Route::post('/article/{article}/comment', 'CommentController@store')->name('comment.store');
