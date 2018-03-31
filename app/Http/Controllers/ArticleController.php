@@ -32,7 +32,9 @@ class ArticleController extends Controller
 
         $article->categories()->attach(request('category'));
 
-        return redirect('/article');
+        session()->flash('message' , 'مقاله شما با موفقیت ارسال شد.');
+
+        return back();
     }
 
     public function show(Article $article)

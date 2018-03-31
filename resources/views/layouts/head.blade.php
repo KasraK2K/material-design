@@ -20,7 +20,8 @@
 <link rel="stylesheet" href="/css/bttn.min.css"/>
 
 {{--CSS Override--}}
-<link rel="stylesheet" href="/css/styles.css"/>
+{{--<link rel="stylesheet" href="/css/styles.css"/>--}}
+<link rel="stylesheet" href="{{ mix('css/styles.css') }}">
 
 {{--modernizr script--}}
 <script src="/js/vendor/modernizr.js"></script>

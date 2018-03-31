@@ -3,14 +3,14 @@
 <head>
     {{--head-down-extentions--}}
     @yield('head-up-extention')
-    @include('layouts.extention.google-analytics')
+    {{--@include('layouts.extention.google-analytics')--}}
 
     {{--head links--}}
     @include('layouts.head')
 
     {{--head-down-extentions--}}
-    @include('layouts.extention.chatra')
-    @include('layouts.extention.hotjar')
+    {{--@include('layouts.extention.chatra')--}}
+    {{--@include('layouts.extention.hotjar')--}}
     @yield('head-down-extention')
 
 </head>
@@ -42,7 +42,7 @@
 @include('layouts.footer-script')
 
 {{--down-extentions--}}
-@include('layouts.extention.mouseflow')
+{{--@include('layouts.extention.mouseflow')--}}
 @yield('down-extention')
 
 {{--joyride--}}

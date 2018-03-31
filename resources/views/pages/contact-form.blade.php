@@ -4,7 +4,7 @@
     {{--page title--}}
     <seaction id="portfolio-header">
         <div class="small-12 medium-12 large-12 columns page-title text-center caption">
-            <h2 class="text-3d">تماس با گروه طراحی متریال دیزاین</h2>
+            <h2 class="text-3d">تماس با متریال دیزاین</h2>
         </div>
     </seaction>
 @endsection

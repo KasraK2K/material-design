@@ -17,6 +17,15 @@
                 <blockquote>
                     <h5 class="dark-stork-shadow">فرم ایجاد مقاله جدید</h5>
                 </blockquote>
+                {{--sucsses message--}}
+                @if($message = session('message'))
+                    <div class="row margin-0">
+                        <div data-alert class="small-12 columns alert-box success radius text-center">
+                            {{ $message }}
+                            <a href="#" class="close">&times;</a>
+                        </div>
+                    </div>
+                @endif
                 {{--errors--}}
                 @include('layouts.errors')
                 <form action="{{ route('article.store') }}" method="post" data-abide>
