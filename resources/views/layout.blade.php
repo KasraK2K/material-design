@@ -18,7 +18,8 @@
 {{--Body Content--}}
 
 {{--main menu--}}
-@include('layouts.navbar')
+{{--@include('layouts.navbar')--}}
+{!! menu('main menu', 'layouts.navbar-foundation') !!}
 
 {{--slider--}}
 @yield('slider')

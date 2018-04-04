@@ -40,3 +40,8 @@ Route::get('/discontent-form', function () {
 Route::get('/hire-form', function () {
     return view('pages.hire-form');
 });
+
+
+Route::group(['prefix' => 'admin'], function () {
+    Voyager::routes();
+});
